@@ -3,7 +3,7 @@ import useAddTodos from "./hooks/useAddTodos";
 
 const TodoForm = () => {
   const ref = useRef<HTMLInputElement>(null);
-  const addTodo = useAddTodos(() => {
+  const  addTodo = useAddTodos(() => {
     if (ref.current) ref.current.value = "";
   });
 
@@ -12,7 +12,6 @@ const TodoForm = () => {
       {addTodo.error && (
         <div className="alert alert-danger">{addTodo.error.message}</div>
       )}
-
       <form
         className="row mb-3"
         onSubmit={(event) => {

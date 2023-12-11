@@ -17,7 +17,7 @@ const useAddTodos = (onAdd: () => void) => {
 
       queryClient.setQueryData<Todo[]>(CACHE_KEY_TODOS, (todos = []) => [
         newTodo,
-        ...todos,
+        ...todos
       ]);
 
       onAdd();

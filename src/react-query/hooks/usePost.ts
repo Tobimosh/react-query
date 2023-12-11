@@ -9,7 +9,6 @@ export interface Post {
   userId: number;
 }
 
-
 interface PostQuery {
 
     pageSize: number;

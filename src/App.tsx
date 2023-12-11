@@ -1,14 +1,24 @@
-import './App.css';
-import PostList from './react-query/PostList';
-import TodoForm from './react-query/TodoForm';
-import TodoList from './react-query/TodoList';
+import { useReducer } from "react";
+import "./App.css";
+import { taskListReducer } from "./react-query/reducer/taskListReducer";
+import HomePage from "./state-management/HomePage";
+import NavBar from "./state-management/NavBar";
+import TasksContext from "./state-management/context/taskContext";
+import { loginReducer } from "./react-query/reducer/loginReducer";
+import UserContext from "./state-management/context/userContext";
+import AuthProvider from "./state-management/AuthProvider";
 
 function App() {
-  return(
-    <>
-    <TodoForm/>
-    <TodoList/>
-    </>
+  const [tasks, dispatch] = useReducer(taskListReducer, []);
+
+
+  return (
+    <AuthProvider>
+      <TasksContext.Provider value={{ tasks, dispatch }}>
+        <NavBar/>
+        <HomePage />
+      </TasksContext.Provider>
+    </AuthProvider>
   );
 }
 
