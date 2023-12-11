@@ -7,17 +7,19 @@ import TasksContext from "./state-management/context/taskContext";
 import { loginReducer } from "./react-query/reducer/loginReducer";
 import UserContext from "./state-management/context/userContext";
 import AuthProvider from "./state-management/AuthProvider";
+import TaskProvider from "./state-management/TaskProvider";
 
 function App() {
-  const [tasks, dispatch] = useReducer(taskListReducer, []);
 
 
   return (
     <AuthProvider>
-      <TasksContext.Provider value={{ tasks, dispatch }}>
-        <NavBar/>
+      <TaskProvider>
+        <NavBar />
         <HomePage />
-      </TasksContext.Provider>
+      </TaskProvider>
+
+   
     </AuthProvider>
   );
 }

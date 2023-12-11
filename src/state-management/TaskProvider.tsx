@@ -1,9 +1,19 @@
+import { ReactNode, useContext, useReducer } from "react";
+import TasksContext from "./context/taskContext";
+import { taskListReducer } from "../react-query/reducer/taskListReducer";
 
-const TaskProvider = () => {
+
+interface Props{
+    children: ReactNode
+}
+const TaskProvider = ({children}: Props) => {
+      const [tasks, dispatch] = useReducer(taskListReducer, []);
+
   return (
-    <div>
-      
-    </div>
+    <TasksContext.Provider value={{tasks, dispatch}}>
+            {children}
+    </TasksContext.Provider>
+ 
   )
 }
 
