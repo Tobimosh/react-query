@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { UserAction } from "../../react-query/reducer/loginReducer";
+import { UserAction } from "./AuthProvider";
 import React from "react";
 
 

@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { Action, Task } from "../../react-query/reducer/taskListReducer";
+import { Action, Task } from "./TaskProvider";
 import React from "react";
 
 
